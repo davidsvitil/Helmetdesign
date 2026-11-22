@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expose Designs | Custom design a malování helem</title>
+  <meta name="description" content="Ručně malované helmy a závodní livery na míru. Žádné šablony – každá helma je originál.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top"><span class="logo-x">X</span> EXPOSE <small>designs</small></a>
+    <nav>
+      <a href="#proces">Proces</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#kontakt" class="btn btn-small">Chci helmu</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Custom helmet design &amp; painting</p>
+        <h1>Bílá helma.<br><span class="accent">Tvůj příběh.</span></h1>
+        <p class="lead">Každá helma začíná takhle – čistá, bílá, bez potisku. Co z ní uděláme, záleží na tobě.
+          Ručně, bez šablon, s plnou pozorností k detailu.</p>
+        <div class="hero-cta">
+          <a href="#kontakt" class="btn">Poptat design</a>
+          <a href="#portfolio" class="btn btn-ghost">Portfolio</a>
+        </div>
+      </div>
+
+      <div class="hero-stage">
+        <div class="helmet-wrap" id="heroHelmet" tabindex="0" aria-label="Najeď na helmu a uvidíš design"></div>
+        <p class="hint"><span class="hint-mouse">Najeď myší na helmu</span><span class="hint-touch">Klepni na helmu</span></p>
+        <div class="design-picker" role="tablist" aria-label="Vyber design">
+          <button class="chip is-active" data-design="3xl" role="tab">3XL Racing</button>
+          <button class="chip" data-design="3ae" role="tab">One Life</button>
+          <button class="chip" data-design="eliska" role="tab">Eliška #12</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="proces">
+      <h2>Jak to probíhá</h2>
+      <div class="steps">
+        <article class="step">
+          <span class="step-n">01</span>
+          <h3>Pokecáme o nápadu</h3>
+          <p>Chceš něco decentního? Divokou kreslírnu? Fotku svého psa nebo závodní číslo?
+            Máš jasnou představu, nebo jen pár útržků? Přijdeme na to spolu. Žádné šablony – bude to tvůj originál.</p>
+        </article>
+        <article class="step">
+          <span class="step-n">02</span>
+          <h3>Navrhneme ho</h3>
+          <p>Podle toho, na čem se domluvíme, připravíme návrh. Uvidíš barvy, rozložení i celkový vibe.
+            Jiná barva? Nový detail? Úplně jiný směr? Tady všechno doladíme, než se pustíme do práce.</p>
+        </article>
+        <article class="step">
+          <span class="step-n">03</span>
+          <h3>Jdeme na to</h3>
+          <p>Jakmile dáš zelenou, bereme helmu do dílny. Všechno ručně – pečlivě, trpělivě a s citem pro detail.
+            Barvy, linky, vrstvy laku. Výsledek? Poctivé řemeslo, za kterým si stojíme.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h2>Vybrané projekty</h2>
+      <div class="cards">
+        <article class="card" data-design="3xl">
+          <div class="card-helmet"></div>
+          <h3>3XL racing livery</h3>
+          <p>Kompletní závodní livery pro tým 3XL – helmy, ručně malované kapotáže a kombinézy v červené,
+            bílé a petrolejově zelené.</p>
+        </article>
+        <article class="card" data-design="3ae">
+          <div class="card-helmet"></div>
+          <h3>Helma s osobním příběhem</h3>
+          <p>Cestovatelská helma sladěná s výbavou majitele – s otisky dlaní jeho dětí jako osobním symbolem.</p>
+        </article>
+        <article class="card" data-design="eliska">
+          <div class="card-helmet"></div>
+          <h3>Její první helma</h3>
+          <p>Helma pro dvanáctiletou jezdkyni – dárek od táty, na kterém je všechno, co má ráda.</p>
+        </article>
+      </div>
+      <p class="more"><a href="https://www.expose.cz/en/gallery" target="_blank" rel="noopener">Celá galerie na expose.cz →</a></p>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <h2>Připraven na vlastní design?</h2>
+      <p>Napiš nám, co tě napadá – i kdyby to byl jen jeden obrázek nebo barva.</p>
+      <div class="hero-cta center">
+        <a class="btn" href="https://www.expose.cz" target="_blank" rel="noopener">Poptávka na expose.cz</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/design.by.expos_e/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Expose Designs</span>
+    <span>Ručně malované helmy &amp; livery</span>
+  </footer>
+
+  <script src="js/helmet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
