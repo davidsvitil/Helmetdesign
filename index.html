@@ -34,13 +34,13 @@
       </div>
 
       <div class="hero-stage">
-        <div class="helmet-wrap" id="heroHelmet" tabindex="0" aria-label="Najeď na helmu a uvidíš design"></div>
-        <p class="hint"><span class="hint-mouse">Najeď myší na helmu</span><span class="hint-touch">Klepni na helmu</span></p>
-        <div class="design-picker" role="tablist" aria-label="Vyber design">
-          <button class="chip is-active" data-design="3xl" role="tab">3XL Racing</button>
-          <button class="chip" data-design="3ae" role="tab">One Life</button>
-          <button class="chip" data-design="eliska" role="tab">Eliška #12</button>
+        <div class="reveal" id="heroReveal" tabindex="0" aria-label="Najeď na helmu a uvidíš hotový design">
+          <img class="reveal-base" src="img/helmet-white.webp" alt="Čistě bílá helma bez potisku" width="1400" height="1134">
+          <img class="reveal-top" src="img/helmet-painted.webp" alt="Stejná helma s ručně malovaným designem 3XL racing" width="1400" height="1134">
+          <span class="reveal-tag tag-before">Před</span>
+          <span class="reveal-tag tag-after">Po – 3XL racing livery</span>
         </div>
+        <p class="hint"><span class="hint-mouse">Najeď myší na helmu</span><span class="hint-touch">Klepni na helmu</span></p>
       </div>
     </section>
 
@@ -71,19 +71,19 @@
     <section class="portfolio" id="portfolio">
       <h2>Vybrané projekty</h2>
       <div class="cards">
-        <article class="card" data-design="3xl">
-          <div class="card-helmet"></div>
+        <article class="card">
+          <div class="card-photo"><img src="img/project-3xl.webp" alt="3XL racing livery" loading="lazy"></div>
           <h3>3XL racing livery</h3>
           <p>Kompletní závodní livery pro tým 3XL – helmy, ručně malované kapotáže a kombinézy v červené,
             bílé a petrolejově zelené.</p>
         </article>
-        <article class="card" data-design="3ae">
-          <div class="card-helmet"></div>
+        <article class="card">
+          <div class="card-photo"><img src="img/project-3ae.webp" alt="Cestovatelská helma s osobním příběhem" loading="lazy"></div>
           <h3>Helma s osobním příběhem</h3>
           <p>Cestovatelská helma sladěná s výbavou majitele – s otisky dlaní jeho dětí jako osobním symbolem.</p>
         </article>
-        <article class="card" data-design="eliska">
-          <div class="card-helmet"></div>
+        <article class="card">
+          <div class="card-photo"><img src="img/project-eliska.webp" alt="Helma pro dvanáctiletou jezdkyni" loading="lazy"></div>
           <h3>Její první helma</h3>
           <p>Helma pro dvanáctiletou jezdkyni – dárek od táty, na kterém je všechno, co má ráda.</p>
         </article>
@@ -106,7 +106,6 @@
     <span>Ručně malované helmy &amp; livery</span>
   </footer>
 
-  <script src="js/helmet.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,31 +1,38 @@
-// Hero helma: bílá, design se odhalí při najetí
-const hero = document.getElementById("heroHelmet");
-hero.innerHTML = helmetSVG("hero", "3xl");
-const heroReveal = attachReveal(hero);
+// Bílá helma -> při najetí se od kurzoru "nastříká" skutečný design
+const reveal = document.getElementById("heroReveal");
+let r = 0, raf = null, shown = false;
+const MAX = 160; // % šířky – pokryje celou fotku
 
-document.querySelectorAll(".design-picker .chip").forEach((chip) => {
-  chip.addEventListener("click", () => {
-    document.querySelectorAll(".design-picker .chip").forEach((c) => c.classList.remove("is-active"));
-    chip.classList.add("is-active");
-    heroReveal.setDesign(chip.dataset.design, "hero");
-    // ukázat nový design hned po výběru
-    const rect = hero.getBoundingClientRect();
-    heroReveal.show({ clientX: rect.left + rect.width * 0.5, clientY: rect.top + rect.height * 0.5 });
-  });
-});
+function setPoint(e) {
+  const b = reveal.getBoundingClientRect();
+  reveal.style.setProperty("--x", ((e.clientX - b.left) / b.width) * 100 + "%");
+  reveal.style.setProperty("--y", ((e.clientY - b.top) / b.height) * 100 + "%");
+}
 
-hero.addEventListener("keydown", (e) => {
+function animateTo(target, dur) {
+  cancelAnimationFrame(raf);
+  const from = r, t0 = performance.now();
+  const step = (now) => {
+    const t = Math.max(0, Math.min(1, (now - t0) / dur));
+    const k = 1 - Math.pow(1 - t, 3);
+    r = from + (target - from) * k;
+    reveal.style.setProperty("--r", r.toFixed(2) + "%");
+    if (t < 1) raf = requestAnimationFrame(step);
+  };
+  raf = requestAnimationFrame(step);
+}
+
+function show(e) { if (e) setPoint(e); shown = true; reveal.classList.add("is-painted"); animateTo(MAX, 1600); }
+function hide(e) { if (e) setPoint(e); shown = false; reveal.classList.remove("is-painted"); animateTo(0, 700); }
+
+reveal.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") show(e); });
+reveal.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hide(e); });
+reveal.addEventListener("pointerup", (e) => { if (e.pointerType !== "mouse") (shown ? hide : show)(e); });
+reveal.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
-    const rect = hero.getBoundingClientRect();
-    const p = { clientX: rect.left + rect.width / 2, clientY: rect.top + rect.height / 2 };
-    heroReveal.shown ? heroReveal.hide(p) : heroReveal.show(p);
+    reveal.style.setProperty("--x", "50%");
+    reveal.style.setProperty("--y", "50%");
+    shown ? hide() : show();
   }
-});
-
-// Portfolio: taky bílé, design při najetí na kartu
-document.querySelectorAll(".card").forEach((card, i) => {
-  const box = card.querySelector(".card-helmet");
-  box.innerHTML = helmetSVG(`card${i}`, card.dataset.design);
-  attachReveal(box, { trigger: card });
 });

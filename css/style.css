@@ -66,32 +66,37 @@ h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; font-weight: 900; l
 .hero-cta.center { justify-content: center; }
 
 .hero-stage { display: flex; flex-direction: column; align-items: center; }
-.helmet-wrap {
-  width: 100%; max-width: 680px; cursor: crosshair; outline: none;
-  transition: transform .5s cubic-bezier(.2, .8, .2, 1), filter .5s;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .35));
+.reveal {
+  --x: 50%; --y: 50%; --r: 0%;
+  position: relative; width: 100%; max-width: 760px; aspect-ratio: 1400 / 1134;
+  border-radius: 24px; overflow: hidden; cursor: crosshair; outline: none;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .5), 0 0 0 1px var(--line);
+  transition: transform .6s cubic-bezier(.2, .8, .2, 1), box-shadow .6s;
 }
-.helmet-wrap.is-painted { transform: scale(1.03) rotate(-1deg); }
-.helmet-wrap:focus-visible { outline: 2px dashed var(--accent); outline-offset: 8px; border-radius: 20px; }
-.helmet-svg { width: 100%; height: auto; display: block; }
+.reveal img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; user-select: none; -webkit-user-drag: none; }
+.reveal-top {
+  -webkit-mask-image: radial-gradient(circle at var(--x) var(--y), #000 calc(var(--r) - 12%), transparent var(--r));
+          mask-image: radial-gradient(circle at var(--x) var(--y), #000 calc(var(--r) - 12%), transparent var(--r));
+}
+.reveal.is-painted { transform: scale(1.015); box-shadow: 0 50px 100px rgba(0, 0, 0, .6), 0 0 0 1px var(--accent); }
+.reveal:focus-visible { outline: 2px dashed var(--accent); outline-offset: 6px; }
+.reveal-tag {
+  position: absolute; top: 16px; left: 16px; padding: 6px 12px; border-radius: 999px;
+  font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  background: rgba(18, 21, 22, .7); backdrop-filter: blur(6px); color: var(--text);
+  transition: opacity .4s;
+}
+.tag-after { opacity: 0; color: #fff; background: rgba(34, 163, 219, .85); }
+.reveal.is-painted .tag-before { opacity: 0; }
+.reveal.is-painted .tag-after { opacity: 1; }
 
 .hint {
-  margin-top: 6px; font-size: .85rem; color: var(--muted); letter-spacing: .08em;
+  margin-top: 14px; font-size: .85rem; color: var(--muted); letter-spacing: .08em;
   transition: opacity .3s;
 }
 .hint-touch { display: none; }
 @media (hover: none) { .hint-mouse { display: none; } .hint-touch { display: inline; } }
 .hero-stage:has(.is-painted) .hint { opacity: 0; }
-
-.design-picker { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; justify-content: center; }
-.chip {
-  font: inherit; font-size: .85rem; cursor: pointer;
-  padding: 8px 16px; border-radius: 999px;
-  background: var(--bg-2); color: var(--muted); border: 1px solid var(--line);
-  transition: all .2s;
-}
-.chip:hover { color: var(--text); border-color: var(--accent-2); }
-.chip.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
 /* SECTIONS */
 section { padding: 100px clamp(20px, 5vw, 64px); }
@@ -111,11 +116,12 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 4
 .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .card {
   padding: 22px 24px 30px; border-radius: 20px; background: var(--bg-2); border: 1px solid var(--line);
-  cursor: crosshair; transition: border-color .3s, transform .3s;
+  transition: border-color .3s, transform .3s;
 }
 .card:hover { border-color: var(--accent); transform: translateY(-4px); }
-.card-helmet { margin-bottom: 14px; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
-.card-helmet.is-painted { transform: scale(1.04); }
+.card-photo { aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; margin-bottom: 18px; }
+.card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2, .8, .2, 1); }
+.card:hover .card-photo img { transform: scale(1.06); }
 .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .card p { color: var(--muted); font-size: .95rem; }
 .more { margin-top: 36px; text-align: center; }
@@ -132,7 +138,7 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 4
 }
 
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-top: 50px; }
+  .hero { grid-template-columns: 1fr; text-align: center; gap: 28px; min-height: auto; padding-top: 50px; }
   .lead { margin-left: auto; margin-right: auto; }
   .hero-cta { justify-content: center; }
   .steps, .cards { grid-template-columns: 1fr; }
