@@ -40,7 +40,13 @@
           <span class="reveal-tag tag-before">Před</span>
           <span class="reveal-tag tag-after">Po – 3XL racing livery</span>
         </div>
-        <p class="hint" id="hint">Klikni na helmu a nastříkej design</p>
+        <div class="spray">
+          <span class="spray-label">Bílá</span>
+          <input type="range" id="spraySlider" min="0" max="100" step="0.1" value="0" aria-label="Míra nastříkání designu">
+          <span class="spray-label">Design</span>
+          <output id="sprayValue" for="spraySlider">0 %</output>
+        </div>
+        <p class="hint" id="hint">Klikni na helmu, nebo táhni sliderem</p>
       </div>
     </section>
 

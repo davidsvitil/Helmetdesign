@@ -1,25 +1,38 @@
 // Helma je bílá. Klik = nastříkat design od místa kliknutí, další klik = zpět na bílou.
+// Slider pod helmou ovládá nastříkání ručně (sprej jede zleva doprava).
 const reveal = document.getElementById("heroReveal");
 const topImg = reveal.querySelector(".reveal-top");
+const slider = document.getElementById("spraySlider");
+const sprayBox = slider.closest(".spray");
+const valueEl = document.getElementById("sprayValue");
 
 const EDGE = 12;          // šířka měkkého okraje "spreje" v %
 const FULL = 100 + EDGE;  // 100 % = nejvzdálenější roh -> při FULL je pokryto celé
 let r = 0, raf = null, painted = false;
 let px = 50, py = 50;
 
-function applyMask() {
+function setPainted(state) {
+  painted = state;
+  reveal.classList.toggle("is-painted", painted);
+  reveal.setAttribute("aria-pressed", String(painted));
+}
+
+function render() {
   const solid = Math.max(0, r - EDGE);
   const m = r <= 0
     ? "linear-gradient(transparent, transparent)"
     : `radial-gradient(circle farthest-corner at ${px}% ${py}%, #000 ${solid}%, transparent ${r}%)`;
   topImg.style.webkitMaskImage = m;
   topImg.style.maskImage = m;
+  // synchronizace slideru
+  const pct = (r / FULL) * 100;
+  slider.value = pct.toFixed(1);
+  sprayBox.style.setProperty("--p", pct + "%");
+  valueEl.textContent = Math.round(pct) + " %";
 }
 
 function setPoint(e) {
-  if (!e || e.clientX === undefined || (e.clientX === 0 && e.clientY === 0 && e.detail === 0)) {
-    px = 50; py = 50; return; // klávesnice
-  }
+  if (!e || e.clientX === undefined || e.detail === 0) { px = 50; py = 50; return; } // klávesnice
   const b = reveal.getBoundingClientRect();
   px = Math.min(100, Math.max(0, ((e.clientX - b.left) / b.width) * 100));
   py = Math.min(100, Math.max(0, ((e.clientY - b.top) / b.height) * 100));
@@ -34,7 +47,7 @@ function animateTo(target, dur) {
     const t = d <= 0 ? 1 : Math.max(0, Math.min(1, (now - t0) / d));
     const k = 1 - Math.pow(1 - t, 3); // easeOutCubic – reakce je vidět hned
     r = from + (target - from) * k;
-    applyMask();
+    render();
     if (t < 1) raf = requestAnimationFrame(step);
   };
   raf = requestAnimationFrame(step);
@@ -42,13 +55,21 @@ function animateTo(target, dur) {
 
 function toggle(e) {
   setPoint(e);
-  painted = !painted;
-  reveal.classList.toggle("is-painted", painted);
-  reveal.setAttribute("aria-pressed", String(painted));
+  setPainted(!painted);
   animateTo(painted ? FULL : 0, painted ? 1300 : 900);
 }
 
-applyMask();
+// --- slider ---
+function onSlide() {
+  cancelAnimationFrame(raf);
+  if (px !== 0 || py !== 55) { px = 0; py = 55; } // sprej od zadní části helmy
+  r = (parseFloat(slider.value) / 100) * FULL;
+  setPainted(r >= FULL / 2);
+  render();
+}
+slider.addEventListener("input", onSlide);
+
+render();
 reveal.addEventListener("click", toggle);
 reveal.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(null); }
