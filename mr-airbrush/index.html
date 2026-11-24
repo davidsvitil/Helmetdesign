@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MR. Airbrush | Airbrush helmy a lakování na zakázku – Brno</title>
+  <meta name="description" content="Airbrush helmy od 6 000 Kč, nádrže, rámy kol, kapoty i interiérové malby. Mario Róth – MR. Airbrush, Brno. Působím po celé ČR.">
+  <meta property="og:title" content="MR. Airbrush | Airbrush helmy na zakázku">
+  <meta property="og:description" content="Tvoje helma, tvůj design. Airbrush malba na zakázku od 6 000 Kč.">
+  <meta property="og:image" content="img/helmet-painted.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    :root { --accent: #e9a91f; --accent-rgb: 233, 169, 31; --accent-2: #f3cf7a; }
+    .btn { color: #17130a; }
+    .btn-ghost, .btn-ig { color: var(--text); }
+    .chip.is-active, .pills input:checked + span { color: #17130a; }
+    .tag-after { color: #17130a; background: rgba(233, 169, 31, .92); }
+    .spray { --spray-a: #ff2d6f; --spray-b: #ff7ab0; }
+    .hero { background:
+      radial-gradient(ellipse at 70% 45%, rgba(233, 169, 31, .13), transparent 60%),
+      radial-gradient(ellipse at 10% 90%, rgba(255, 45, 111, .07), transparent 50%); }
+    /* ceník */
+    .pricing { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .price-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; align-items: start; }
+    .price-hero { padding: 34px; border-radius: 22px; background: var(--bg); border: 1px solid var(--accent); }
+    .price-hero .from { color: var(--muted); font-size: .9rem; text-transform: uppercase; letter-spacing: .15em; }
+    .price-hero .big { font-size: clamp(2.6rem, 5vw, 3.6rem); font-weight: 900; color: var(--accent); line-height: 1.1; margin: 6px 0 10px; }
+    .price-hero p { color: var(--muted); margin-bottom: 22px; }
+    .price-list { list-style: none; display: grid; gap: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg); }
+    .price-list li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+    .price-list li:last-child { border-bottom: 0; }
+    .price-list span { color: var(--muted); }
+    .price-list b { white-space: nowrap; }
+    .price-note { color: var(--muted); font-size: .85rem; margin-top: 14px; }
+    .steps-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .price-grid, .steps-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 9.9 2.6 10.3 2.6 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8a3.1 3.1 0 1 0 0-6.2 3.1 3.1 0 0 0 0 6.2zm5.1-9.4a1.1 1.1 0 1 1 0 2.3 1.1 1.1 0 0 1 0-2.3z"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm-1 1 9 7 9-7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+  </svg>
+
+  <header class="nav">
+    <a class="logo" href="#top"><span class="logo-x">M</span> MR. AIRBRUSH <small>brno</small></a>
+    <nav>
+      <a href="#proc">Proč airbrush</a>
+      <a href="#cenik">Ceník</a>
+      <a href="#portfolio">Práce</a>
+      <a class="nav-ig" href="https://www.instagram.com/mario_erko/" target="_blank" rel="noopener" aria-label="Instagram MR. Airbrush"><svg><use href="#i-ig"/></svg></a>
+      <a href="#poptavka" class="btn btn-small">Poptat malbu</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Airbrush &amp; lakování na zakázku · Brno</p>
+        <h1>Tvoje helma.<br><span class="accent">Tvůj design.</span></h1>
+        <p class="lead">Airbrush nanáší barvu ve velmi jemných vrstvách – díky tomu vzniknou plynulé přechody a detaily,
+          které žádná fólie ani potisk nedokáže. Realisticky, nebo čistě graficky. Podle tebe.</p>
+        <div class="hero-cta">
+          <a href="#poptavka" class="btn">Chci návrh a cenu <svg class="ico"><use href="#i-arrow"/></svg></a>
+          <a href="#cenik" class="btn btn-ghost">Helma od 6 000 Kč</a>
+        </div>
+        <ul class="hero-points">
+          <li>Grafický návrh předem</li>
+          <li>Kov, plast, karbon</li>
+          <li>Působím po celé ČR</li>
+        </ul>
+      </div>
+
+      <div class="hero-stage">
+        <div class="reveal" id="heroReveal" role="button" tabindex="0" aria-pressed="false" aria-label="Klikni na helmu a nastříkej design" style="aspect-ratio:1400/1064">
+          <img class="reveal-base" src="img/helmet-white.webp" alt="Motokrosová helma bez malby" width="1400" height="1064">
+          <img class="reveal-top" src="img/helmet-painted.webp" alt="Stejná helma s růžovým designem a číslem 89" width="1400" height="1064">
+          <span class="reveal-tag tag-before">Před</span>
+          <span class="reveal-tag tag-after">Po – motokrosová helma #89</span>
+        </div>
+        <div class="spray">
+          <span class="spray-label">Bílá</span>
+          <input type="range" id="spraySlider" min="0" max="100" step="0.1" value="0" aria-label="Míra nastříkání designu">
+          <span class="spray-label">Airbrush</span>
+          <output id="sprayValue" for="spraySlider">0 %</output>
+        </div>
+        <p class="hint">Klikni na helmu, nebo táhni sliderem</p>
+      </div>
+    </section>
+
+    <section class="strip" aria-label="Proč MR. Airbrush">
+      <div><strong>6&nbsp;000&nbsp;Kč</strong><span>Airbrush helma už od této ceny</span></div>
+      <div><strong>Návrh</strong><span>Grafický návrh a cenová nabídka předem</span></div>
+      <div><strong>ČR</strong><span>Sídlím v Brně, působím po celé republice</span></div>
+      <div><strong>Poštou</strong><span>Helmu stačí poslat, nemusíš nikam jezdit</span></div>
+    </section>
+
+    <section class="why" id="proc">
+      <p class="eyebrow">Proč airbrush</p>
+      <h2>Fólie se odlepí. Potisk vypadá jako potisk.<br>Airbrush je malba.</h2>
+      <div class="why-grid">
+        <article class="why-card"><span class="why-ico">✦</span><h3>Jedinečný kus</h3>
+          <p>Design a originální zpracování na míru, podle tvého přání. Nikdo jiný stejnou helmu mít nebude.</p></article>
+        <article class="why-card"><span class="why-ico">◐</span><h3>Plynulé přechody</h3>
+          <p>Jemné vrstvy barvy dovolí přechody, stíny a detaily, které vypadají realisticky – nebo čistě graficky, jak chceš.</p></article>
+        <article class="why-card"><span class="why-ico">◎</span><h3>Na silnici tě uvidí</h3>
+          <p>Výrazné barvy a kontrasty tě dělají viditelnějším pro ostatní. Styl, který má i praktickou stránku.</p></article>
+        <article class="why-card"><span class="why-ico">⚙</span><h3>Nejen helmy</h3>
+          <p>Nádrž, kapota, rám kola, lyže, snowboard. Sladíme helmu s motorkou nebo kolem do jednoho stylu.</p></article>
+        <article class="why-card"><span class="why-ico">🛠</span><h3>Opravy i renovace</h3>
+          <p>Odřený lak, lokální oprava nebo oživení starší airbrush malby. Navrátím původní vzhled.</p></article>
+        <article class="why-card"><span class="why-ico">📦</span><h3>Pohodlně poštou</h3>
+          <p>Po odsouhlasení návrhu mi předmět pošleš poštou nebo kurýrem. Odkudkoli z ČR.</p></article>
+      </div>
+    </section>
+
+    <section class="band">
+      <img src="img/portfolio/helma-jako-baseballovy-micek.webp" alt="" loading="lazy">
+      <div class="band-text">
+        <p class="band-quote">„Popište mi co nejpodrobněji svoji představu. Zbytek je na mně.“</p>
+        <a href="#poptavka" class="btn">Popsat představu</a>
+      </div>
+    </section>
+
+    <section class="process" id="proces">
+      <p class="eyebrow">Jak probíhá realizace</p>
+      <h2>Tři kroky k vlastní helmě</h2>
+      <div class="steps steps-3">
+        <article class="step"><span class="step-n">01</span><h3>Tvoje představa</h3>
+          <p>Napiš, na co budeme malovat, jaký motiv a barvy chceš. Stačí podrobný popis, klidně přilož fotky pro inspiraci.</p></article>
+        <article class="step"><span class="step-n">02</span><h3>Můj návrh</h3>
+          <p>Na základě zadání připravím grafický návrh a cenovou nabídku. Návrh můžeme upravovat, dokud nesedí.</p></article>
+        <article class="step"><span class="step-n">03</span><h3>Realizace</h3>
+          <p>Po odsouhlasení mi helmu pošleš poštou nebo kurýrem. Malby v interiérech a exteriérech dělám přímo na místě.</p></article>
+      </div>
+    </section>
+
+    <section class="pricing" id="cenik">
+      <p class="eyebrow">Ceník</p>
+      <h2>Férové ceny, předem jasné</h2>
+      <div class="price-grid">
+        <div class="price-hero">
+          <p class="from">Airbrush motocyklová helma</p>
+          <p class="big">od 6 000 Kč</p>
+          <p>Včetně gólmanských masek. Výsledná cena podle rozsahu a náročnosti motivu – vždy ji znáš předem spolu s grafickým návrhem.</p>
+          <a href="#poptavka" class="btn">Chci cenovou nabídku</a>
+        </div>
+        <div>
+          <ul class="price-list">
+            <li><span>Nádrž motocyklu</span><b>od 8 000 Kč</b></li>
+            <li><span>Motorka komplet</span><b>od 18 000 Kč</b></li>
+            <li><span>Drobné auto-moto díly (víčka, zrcátka)</span><b>od 2 000 Kč</b></li>
+            <li><span>Kapota auta</span><b>od 10 000 Kč</b></li>
+            <li><span>Rám kola</span><b>od 10 000 Kč</b></li>
+            <li><span>Lyže / snowboard</span><b>od 4 500 Kč</b></li>
+            <li><span>Skateboard</span><b>od 3 000 Kč</b></li>
+            <li><span>Interiér / exteriér</span><b>od 3 000 Kč/m²</b></li>
+          </ul>
+          <p class="price-note">Opravy poškozených dílů nejsou v základní ceně – náklady vždy konzultujeme předem.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <p class="eyebrow">Moje práce</p>
+      <h2>Vybrané realizace</h2>
+      <div class="cards">
+        <button class="card" data-open="img/portfolio/motokrosova-helma-89.webp">
+          <div class="card-photo"><img src="img/portfolio/motokrosova-helma-89.webp" alt="Motokrosová helma s číslem 89" loading="lazy"><span class="card-count"></span></div>
+          <h3>Motokrosová helma #89</h3>
+          <p>Neonově růžová, ručně kreslené linky a velké závodní číslo. Helma, kterou na trati nepřehlédneš.</p>
+          <span class="card-link">Otevřít galerii <svg class="ico"><use href="#i-arrow"/></svg></span>
+        </button>
+        <button class="card" data-open="img/portfolio/helma-jako-baseballovy-micek.webp">
+          <div class="card-photo"><img src="img/portfolio/helma-jako-baseballovy-micek.webp" alt="Helma namalovaná jako baseballový míček" loading="lazy"><span class="card-count"></span></div>
+          <h3>Helma jako baseballový míček</h3>
+          <p>Hravý nápad dotažený do detailu – prošívání malované airbrushem tak, že vypadá jako skutečné.</p>
+          <span class="card-link">Otevřít galerii <svg class="ico"><use href="#i-arrow"/></svg></span>
+        </button>
+        <button class="card" data-open="img/portfolio/nadrz-harley-davidson.webp">
+          <div class="card-photo"><img src="img/portfolio/nadrz-harley-davidson.webp" alt="Lakovaná nádrž Harley-Davidson" loading="lazy"><span class="card-count"></span></div>
+          <h3>Nádrže a díly motorek</h3>
+          <p>Harley-Davidson, BMW i kompletní motorky. Helmu ti sladím s motorkou do jednoho stylu.</p>
+          <span class="card-link">Otevřít galerii <svg class="ico"><use href="#i-arrow"/></svg></span>
+        </button>
+      </div>
+
+      <h3 class="gallery-title">Všechny práce</h3>
+      <div class="filters" role="tablist" aria-label="Filtr galerie">
+        <button class="chip is-active" data-filter="all">Vše</button>
+        <button class="chip" data-filter="helmy">Helmy</button>
+        <button class="chip" data-filter="moto">Moto &amp; auto</button>
+        <button class="chip" data-filter="kola">Kola</button>
+        <button class="chip" data-filter="interier">Interiér</button>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div class="gallery-more"><button class="btn btn-ghost" id="galleryMore" type="button">Zobrazit další</button></div>
+    </section>
+
+    <section class="about">
+      <div class="about-photo"><img src="img/portfolio/baseballova-helma-rozpracovana.webp" alt="Mario Róth při airbrush malbě helmy" loading="lazy"></div>
+      <div class="about-text">
+        <p class="eyebrow">Kdo za tím stojí</p>
+        <h2>Jsem Mario Róth<br>aka MR. Airbrush</h2>
+        <p>Metodou airbrush se zabývám už několik let. Pomocí stříkací pistole nanáším barvu ve velmi jemných vrstvách – díky tomu dokážu vytvořit plynulé barevné přechody a vysokou míru detailu.</p>
+        <p>Maluji na kov, plast, karbon i laminát. Helmy, motorky, kola, auta, ale i obrazy, zdi a reklamní předměty. Sídlím v Brně, ale působím po celé České republice.</p>
+        <p class="about-motto">Výsledný vzhled může být realistický i čistě grafický. Záleží jen na tom, co si představíš.</p>
+      </div>
+    </section>
+
+    <section class="ig">
+      <div class="ig-inner">
+        <svg class="ig-big"><use href="#i-ig"/></svg>
+        <div>
+          <h2>Rozpracované zakázky na Instagramu</h2>
+          <p>Jak vzniká airbrush krok za krokem – od prvních vrstev po hotový lak.</p>
+        </div>
+        <a class="btn btn-ig" href="https://www.instagram.com/mario_erko/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg> @mario_erko</a>
+      </div>
+    </section>
+
+    <section class="inquiry" id="poptavka">
+      <div class="inquiry-intro">
+        <p class="eyebrow">Poptávka</p>
+        <h2>Napiš mi a jdeme na to</h2>
+        <p>Popiš co nejpodrobněji svoji představu – na co budeme malovat, motiv a barvy. Připravím grafický návrh a cenovou nabídku.</p>
+        <ul class="inquiry-points">
+          <li>Návrh a cena vždy předem</li>
+          <li>Návrh upravujeme, dokud nesedí</li>
+          <li>Nezávazně – za poptávku nic neplatíš</li>
+        </ul>
+        <div class="contact-links">
+          <a href="mailto:realerko@gmail.com"><svg class="ico"><use href="#i-mail"/></svg> realerko@gmail.com</a>
+          <a href="tel:+420603157785"><svg class="ico"><use href="#i-phone"/></svg> +420 603 157 785</a>
+          <a href="https://www.instagram.com/mario_erko/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg> @mario_erko</a>
+          <a href="https://www.facebook.com/share/1C1rmZ4AGi/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-fb"/></svg> Facebook</a>
+        </div>
+      </div>
+
+      <form class="inquiry-form" id="inquiryForm" data-email="realerko@gmail.com" novalidate>
+        <div class="field-row">
+          <label class="field"><span>Jméno *</span><input name="jmeno" required autocomplete="name"></label>
+          <label class="field"><span>E-mail *</span><input name="email" type="email" required autocomplete="email"></label>
+        </div>
+        <div class="field-row">
+          <label class="field"><span>Telefon</span><input name="telefon" type="tel" autocomplete="tel"></label>
+          <label class="field"><span>Na co budeme malovat? *</span>
+            <select name="typ" required>
+              <option value="">Vyber…</option>
+              <option>Motocyklová helma</option>
+              <option>Sportovní helma / gólmanská maska</option>
+              <option>Nádrž / díly motorky</option>
+              <option>Kolo</option>
+              <option>Auto</option>
+              <option>Lyže / snowboard / skateboard</option>
+              <option>Interiér / exteriér / reklama</option>
+              <option>Oprava laku</option>
+            </select>
+          </label>
+        </div>
+        <label class="field"><span>Model / předmět</span><input name="model" placeholder="např. Troy Lee SE5, nádrž Harley Sportster"></label>
+        <fieldset class="field">
+          <legend>Styl</legend>
+          <div class="pills">
+            <label><input type="checkbox" name="styl" value="Realistický"><span>Realistický</span></label>
+            <label><input type="checkbox" name="styl" value="Grafický"><span>Grafický</span></label>
+            <label><input type="checkbox" name="styl" value="Závodní"><span>Závodní</span></label>
+            <label><input type="checkbox" name="styl" value="Hravý"><span>Hravý</span></label>
+            <label><input type="checkbox" name="styl" value="Retro"><span>Retro</span></label>
+          </div>
+        </fieldset>
+        <div class="field-row">
+          <label class="field"><span>Kdy to potřebuješ?</span>
+            <select name="termin">
+              <option>Nespěchá</option>
+              <option>Do 2 měsíců</option>
+              <option>Co nejdřív</option>
+              <option>K určitému datu (napíšu do zprávy)</option>
+            </select>
+          </label>
+          <label class="field"><span>Odkud jsi?</span><input name="misto" placeholder="Město"></label>
+        </div>
+        <label class="field"><span>Tvoje představa *</span><textarea name="zprava" rows="5" required placeholder="Motiv, barvy, inspirace… Fotky můžeš přiložit v e-mailu."></textarea></label>
+        <label class="consent"><input type="checkbox" name="souhlas" required><span>Souhlasím se zpracováním údajů za účelem vyřízení poptávky. *</span></label>
+        <button class="btn btn-wide" type="submit"><svg class="ico"><use href="#i-mail"/></svg> Odeslat poptávku</button>
+        <p class="form-note">Po odeslání se otevře tvůj e-mail s připravenou zprávou pro <strong>realerko@gmail.com</strong> – stačí kliknout na Odeslat a případně přiložit fotky.</p>
+        <div class="form-done" id="formDone" hidden>
+          <h3>Skoro hotovo!</h3>
+          <p>Otevřel se ti e-mail s poptávkou – zkontroluj ho a odešli. Neotevřel se? Zkopíruj text a pošli ho na <a href="mailto:realerko@gmail.com">realerko@gmail.com</a>.</p>
+          <div class="hero-cta">
+            <button class="btn btn-small" type="button" id="copyInquiry">Zkopírovat text poptávky</button>
+            <a class="btn btn-small btn-ghost" id="mailAgain" href="#">Otevřít e-mail znovu</a>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <a class="logo" href="#top"><span class="logo-x">M</span> MR. AIRBRUSH <small>brno</small></a>
+      <p>Profesionální lakování a airbrush. Mario Róth, Brno.</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:realerko@gmail.com"><svg class="ico"><use href="#i-mail"/></svg> realerko@gmail.com</a>
+      <a href="tel:+420603157785"><svg class="ico"><use href="#i-phone"/></svg> +420 603 157 785</a>
+      <a href="https://www.instagram.com/mario_erko/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg> Instagram</a>
+      <a href="https://www.facebook.com/share/1C1rmZ4AGi/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-fb"/></svg> Facebook</a>
+    </div>
+    <p class="footer-copy">© 2026 MR. Airbrush – Mario Róth</p>
+  </footer>
+
+  <a class="fab-ig" href="https://www.instagram.com/mario_erko/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Prohlížeč fotek">
+    <button class="lb-close" aria-label="Zavřít">&times;</button>
+    <button class="lb-prev" aria-label="Předchozí">&#8249;</button>
+    <img id="lbImg" alt="">
+    <button class="lb-next" aria-label="Další">&#8250;</button>
+    <p class="lb-count" id="lbCount"></p>
+  </dialog>
+
+  <script>window.SITE_ALT = { helmy: "Airbrush helma", moto: "Airbrush na motorce / autě", kola: "Airbrush rám kola", interier: "Nástěnná malba" };</script>
+  <script src="portfolio-data.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/site.js"></script>
+</body>
+</html>

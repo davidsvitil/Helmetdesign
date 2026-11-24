@@ -1,6 +1,12 @@
 // Portfolio (galerie + filtry + lightbox), projekty a poptávkový formulář
 (() => {
-  const ALT = { helmy: "Ručně malovaná helma", motorky: "Lakovaná motorka a výbava", dilna: "Z dílny Expose Designs" };
+  // Výchozí popisky (Expose); jiné weby je přepíšou přes window.SITE_ALT
+  const ALT = Object.assign(
+    { helmy: "Ručně malovaná helma", motorky: "Lakovaná motorka a výbava", dilna: "Z dílny Expose Designs" },
+    window.SITE_ALT || {}
+  );
+  const altOf = (it) => it.title || ALT[it.cat] || "Ukázka práce";
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   /* ---------- Galerie ---------- */
   const gallery = document.getElementById("gallery");
@@ -17,7 +23,7 @@
     moreBtn.textContent = `Zobrazit další (${list.length - visible.length})`;
     gallery.innerHTML = visible.map((it, idx) => `
       <button class="g-item" data-idx="${idx}" style="aspect-ratio:${it.w}/${it.h}">
-        <img src="${it.src}" width="${it.w}" height="${it.h}" alt="${ALT[it.cat]}" loading="lazy">
+        <img src="${it.src}" width="${it.w}" height="${it.h}" alt="${esc(altOf(it))}" loading="lazy">
       </button>`).join("");
   }
   renderGallery();
@@ -38,10 +44,14 @@
   });
 
   /* ---------- Projekty ---------- */
-  document.querySelectorAll(".card[data-project]").forEach((card) => {
-    const set = PORTFOLIO.filter((i) => i.project === card.dataset.project);
-    card.querySelector(".card-count").textContent = `${set.length} fotek`;
-    card.addEventListener("click", () => openLightbox(set, 0));
+  // data-project = sada fotek projektu, data-open = otevřít celé portfolio na dané fotce
+  document.querySelectorAll(".card[data-project], .card[data-open]").forEach((card) => {
+    const proj = card.dataset.project;
+    const set = proj ? PORTFOLIO.filter((i) => i.project === proj) : PORTFOLIO;
+    const start = proj ? 0 : Math.max(0, set.findIndex((i) => i.src === card.dataset.open));
+    const cnt = card.querySelector(".card-count");
+    if (cnt) cnt.textContent = proj ? `${set.length} fotek` : `${set.length} prací v galerii`;
+    card.addEventListener("click", () => openLightbox(set, start));
   });
 
   /* ---------- Lightbox ---------- */
@@ -54,8 +64,8 @@
     lbIdx = (i + lbSet.length) % lbSet.length;
     const it = lbSet[lbIdx];
     lbImg.src = it.src;
-    lbImg.alt = ALT[it.cat];
-    lbCount.textContent = `${lbIdx + 1} / ${lbSet.length}`;
+    lbImg.alt = altOf(it);
+    lbCount.textContent = (it.title ? it.title + "  ·  " : "") + `${lbIdx + 1} / ${lbSet.length}`;
     // přednačíst sousední
     [1, -1].forEach((d) => { const n = lbSet[(lbIdx + d + lbSet.length) % lbSet.length]; new Image().src = n.src; });
   }
@@ -87,8 +97,8 @@
   });
 
   /* ---------- Poptávka -> e-mail firmy ---------- */
-  const EMAIL = "info@expose.cz";
   const form = document.getElementById("inquiryForm");
+  const EMAIL = form.dataset.email || "info@expose.cz";
   const done = document.getElementById("formDone");
   let lastBody = "", lastHref = "";
 
@@ -100,21 +110,21 @@
       return;
     }
     const f = new FormData(form);
-    const styl = f.getAll("styl").join(", ") || "neuvedeno";
+    // řádek se vypíše jen pokud pole na daném webu existuje
+    const line = (label, name, multi) => {
+      if (!form.elements[name]) return "";
+      const v = multi ? f.getAll(name).join(", ") : f.get(name);
+      return `${label}: ${v || "neuvedeno"}\n`;
+    };
     lastBody =
 `Dobrý den,
 
 posílám poptávku přes web.
 
-Jméno: ${f.get("jmeno")}
-E-mail: ${f.get("email")}
-Telefon: ${f.get("telefon") || "neuvedeno"}
-Co nabarvit: ${f.get("typ")}
-Model: ${f.get("model") || "neuvedeno"}
-Styl: ${styl}
-Termín: ${f.get("termin")}
-Helma: ${f.get("helma")}
-
+` + line("Jméno", "jmeno") + line("E-mail", "email") + line("Telefon", "telefon") +
+      line("Co nabarvit", "typ") + line("Model / předmět", "model") + line("Styl", "styl", true) +
+      line("Termín", "termin") + line("Helma", "helma") + line("Místo", "misto") +
+`
 Nápad:
 ${f.get("zprava")}
 
